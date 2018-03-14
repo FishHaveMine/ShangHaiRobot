@@ -1,0 +1,6 @@
+<div class="usual-command-header">
+    <p class="usual-command-title">常用命令</p>
+</div>
+<div class="usual-command-content">
+    <p class="usual-command" *ngFor="let command of usualCommands" (click)="sendCommand(command)">{{command}}</p>
+</div>

@@ -1,0 +1,87 @@
+<div class="item-modal-container">
+    <div class="item-modal-header">
+        <div class="item-modal-header-font">事项</div>
+        <button type="button" class="close" (click)="close()">×</button>
+    </div>
+    <div class="item-modal-period-block">
+        <div class="item-modal-period">期间</div>
+        <div class="item-modal-time-select">
+            <select [(ngModel)]="selectedYear">
+                <option *ngFor="let year of activeYears" [ngValue]="year">{{year}}</option>
+            </select>
+            <select [(ngModel)]="selectedMonth">
+                <option *ngFor="let month of activeMonths" [ngValue]="month">{{month}}</option>
+            </select>
+            <span [ngClass]="{'item-status-blue': itemStatus == '进行中' || itemStatus == '未发布' ,'item-status-black': itemStatus == '已停用'}">{{itemStatus}}</span>
+        </div>
+    </div>
+    <button class="add-button" (click)="showAddItem('new')">添加</button>
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead class="item-thdead-heade">
+                <tr class="item-trhead-height">
+                    <th class="item-th-font item-th-sn">序号</th>
+                    <th class="item-th-font item-th-pn">项目名称</th>
+                    <th class="item-th-font item-th-feedback">是否反馈</th>
+                    <th class="item-th-font item-th-overtime">截止时间</th>
+                    <th class="item-th-font item-th-operation">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color:#F8FBFD">
+                    <td align="center" title="序号">1</td>
+                    <td align="center" title="项目名称">项目名称</td>
+                    <td align="center" title="是否反馈">是</td>
+                    <td align="center" title="截止时间">2018-01-25 23：00</td>
+                    <td align="center" title="操作">
+                        <a title="编辑" class="item-td-a-edit"> 编辑 </a>
+                        <a title="删除" class="item-td-a-delete"> 删除 </a>
+                    </td>
+                </tr>
+                <tr style="background-color:#FFFFFF">
+                    <td align="center" title="序号">2</td>
+                    <td align="center" title="项目名称">项目名称</td>
+                    <td align="center" title="是否反馈">是</td>
+                    <td align="center" title="截止时间">2018-01-25 23：00</td>
+                    <td align="center" title="操作">
+                        <a title="编辑" class="item-td-a-edit"> 编辑 </a>
+                        <a title="删除" class="item-td-a-delete"> 删除 </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="item-button-bottom">
+        <div class="btn-sava-cancel">
+            <button class="stop-btn">停用</button>
+            <button class="OK-btn">马上发布</button>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="item-modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" (click)="close()" >×</button>
+            <h4 class="modal-title">{{title}}</h4>
+        </div>
+        <div class="modal-body">
+            这是confirm弹框
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="close()">取消</button>
+            <button type="button" class="btn btn-default">确定</button>
+        </div>
+    </div>
+</div> -->

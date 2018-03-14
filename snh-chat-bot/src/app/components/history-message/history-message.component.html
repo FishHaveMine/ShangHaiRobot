@@ -1,0 +1,37 @@
+<div class="history-message-body">
+    <div class="history-show-panel fancy-scrollbar">
+        <div class="history-message-panel" *ngFor="let dialogueVo of msgList">
+            <div *ngIf="dialogueVo.userId != 'e97be413e6cb495c8e83637eea98d6e8'" class="history-message-name">
+                {{dialogueVo.userName}}&nbsp;&nbsp;&nbsp;{{dialogueVo.createDate | date:"yyyy年MM月dd日 HH:mm"}}
+            </div>
+            <div *ngIf="dialogueVo.userId == 'e97be413e6cb495c8e83637eea98d6e8'" class="history-message-CCname">
+                {{dialogueVo.userName}}&nbsp;&nbsp;&nbsp;{{dialogueVo.createDate | date:"yyyy年MM月dd日 HH:mm"}}
+            </div>
+            <div class="history-message-info" *ngIf="dialogueVo.dialogueType == 0" [innerHTML]='dialogueVo.dialogueInfo'></div>
+            <div class="history-message-info" *ngIf="dialogueVo.dialogueType == 13">[智能服务]</div>
+        </div>
+        <div class="history-message-empty" *ngIf="emptyPageFlag">
+            <img src="./assets/images/search/emptyData.png" />
+            <div class="history-message-empty-title">暂无消息</div>
+        </div>
+    </div>
+
+    <div class="history-message-footer">
+        <div class="history-message-footer-left">
+            <input type="text" placeholder="搜索消息记录" [(ngModel)]="inputSearchMeassage">
+        </div>
+        <div class="footer-right">
+            <span class="footer-data">
+                <input type="date" placeholder="yyyy/mm/dd" [(ngModel)]="inuptSearchData">
+            </span>
+            <div class="footer-searchBut" (click)="SearchMessagebutton()">
+                <button>搜索记录</button>
+            </div>
+            <div class="footer-searchBut-previous" (click)="preSearchMessage()" *ngIf="!mesgpreBut"></div>
+            <div class="footer-searchBut-previous-not" *ngIf="mesgpreBut"></div>
+            <div class="footer-searchBut-next" (click)="nextSearchMessage()" *ngIf="!mesgnextBut"></div>
+            <div class="footer-searchBut-next-not" *ngIf="mesgnextBut"></div>
+            <div class="footer-searchBut-back" (click)="closeSearchMessage()"></div>
+        </div>
+    </div>
+</div>

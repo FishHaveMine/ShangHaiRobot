@@ -1,0 +1,44 @@
+<!-- 总frame -->
+<div class="iframe-panel">
+    <input class="download" type="file" nwsaveas/>
+    <div class="iframe-header" (click)="hidenUsualCommandClk()">
+        <div class="iframe-header-logo">
+            <img ondragstart="return false" src="./assets/images/main/topHead.png" />
+        </div>
+        <!-- 瓦特 title table -->
+        <button class="iframe-header-tabJ" [ngClass]="{'iframe-header-tab-active': chooseView === 'message'}" id="kingmuId" (click)="gotoKingMu()">瓦特</button>
+        <!-- 待办事项 titile table -->
+        <button id="blocklogId" class="iframe-header-tabD" [ngClass]="{'iframe-header-tab-active': chooseView === 'backlog'}" (click)="gotoBlocklog()">待办事项</button>
+        <div class="buttons">
+            <div class="button min" (click)="minimize()"></div>
+            <div class="button" [ngClass]="{'max': winState == 0, 'res': winState == 1}" (click)="maximize()"></div>
+            <div class="button close" (click)="close()"></div>
+        </div>
+    </div>
+
+    <div class="iframe-main">
+        <div class="iframe-box" [ngClass]="{'show': chooseView == 'message'}">
+            <!-- 瓦特下message Iframe -->
+            <div class="iframe-message-panel usual-command-hide" (click)="hidenUsualCommandClk()">
+                <app-messageshow [topicId]="topicId" [isShowRight]="isShowRight"></app-messageshow>
+            </div>
+            <!-- 发送命令行 -->
+            <div class="iframe-input-panel usual-command-hide" (click)="hidenUsualCommandClk()">
+                <app-message (messagRespone)="messagRespone($event)" [topicId]="topicId"></app-message>
+            </div>
+
+            <!-- 右侧命令 -->
+            <div class="sidebar-btn-iframe" [ngClass]="{'sidebar-btn-iframe-open':isShowRight, 'sidebar-btn-iframe-hide':!isShowRight}" (mouseover)="showUsualCommand()">
+                <div class="sidebar-btn" [ngClass]="{'sidebar-btn-open':isShowRight, 'sidebar-btn-hide':!isShowRight}"></div>
+            </div>
+            <div [ngClass]="{'iframe-right-open':isShowRight, 'iframe-right-hide':!isShowRight}">
+                <app-usual-command (messagRespone)="messagRespone($event)" [topicId]="topicId"></app-usual-command>
+            </div>
+
+            <history-message [topicId]="topicId" *ngIf="showSearchDetail" (messagRespone)="messagRespone($event)"></history-message>
+        </div>
+        <div class="iframe-box" [ngClass]="{'show': chooseView == 'backlog'}">
+            <app-backlog></app-backlog>
+        </div>
+    </div>
+</div>

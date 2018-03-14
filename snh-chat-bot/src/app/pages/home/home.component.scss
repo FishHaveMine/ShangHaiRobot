@@ -1,0 +1,34 @@
+.main-container {
+  user-select: none;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  .drag {
+    -webkit-app-region: drag;
+    width: 100vw;
+    height: 33vh;
+    position: fixed;
+  }
+  .main-pic {
+    overflow: hidden;
+    &.active {
+      margin-left: -1px;
+      margin-top: -4px;
+    }
+  }
+  .no-read {
+    position: absolute;
+    top: 60px;
+    width: 100vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    span {
+      font-size: 26px;
+      background-color: #D03237;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+    }
+  }
+}

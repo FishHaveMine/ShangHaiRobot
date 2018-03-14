@@ -1,0 +1,14 @@
+<div class="additem-modal-container">
+    <div class="additem-modal-header">
+        <div class="additem-modal-header-font">
+            <span>返回上一层</span>
+            <span>&nbsp;|&nbsp;</span>
+            <span>新增</span>
+        </div>
+        <button type="button" class="close" (click)="close()">×</button>
+    </div>
+    <div class="additem-modal-period-block">
+        <div class="additem-modal-period">项目名称</div>
+        <ueditor [(ngModel)]="full_source" [config]=config></ueditor>
+    </div>
+</div>

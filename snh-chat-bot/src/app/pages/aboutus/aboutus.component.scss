@@ -1,0 +1,67 @@
+app-aboutus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: #F0F1F5;
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .aboutus-content-info {
+        width: 450px;
+        height: 356px;
+        background-color: #FFFFFF;
+        .aboutus-content-info-close {
+            width: 100%;
+            height: 45px;
+            display: flex;
+            justify-content: flex-end;
+            button {
+                border: none;
+                width: 47px;
+                height: 45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #FFFFFF;
+                background-image: url("../../../assets/images/aboutus/closeDefault.png");
+            }
+            button:hover {
+                background-image: url("../../../assets/images/aboutus/closeClick.png");
+                cursor: pointer;
+            }
+        }
+        .aboutus-content-info-logo {
+            width: 100%;
+            // height: 100%;
+            display: flex;
+            justify-content: center;
+            img {
+                width: 145px;
+                height: 152px;
+            }
+        }
+        .aboutus-content-info-version {
+            width: 100%;
+            // height: 100%;
+            color: #000000;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .aboutus-content-info-title {
+            width: 100%;
+            // height: 100%;
+            color: #A1A1A1;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,107 @@
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+ul {
+    list-style: none;
+}
+
+table,
+tr,
+td {
+    border: none;
+    overflow: hidden;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+}
+
+$backgroundColor:#F0F1F5;
+$selectColor: #1F72CD;
+$fontColor:#666666;
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: #999999;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 5px;
+    background-color: #CCCCCC;
+    -webkit-border-radius: 6px;
+}
+
+.baklog_list {
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    color: $fontColor;
+    li {
+        float: left;
+        padding: 5px 15px;
+        text-align: center;
+        font-size: 14px;
+        border-right: 1px solid #cecece;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    .selectItem {
+        color: $selectColor;
+        background-color: #E2F2FF;
+    }
+    li.noBorder {
+        border: none;
+    }
+}
+
+.backlogcontent {
+    // max-width: 980px;max-height: 440px;overflow: auto;
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+    background: #ffffff;
+}
+.baklog_header{
+    background: #ffffff;
+}
+
+.orgLength {
+    color: #666666;
+    font-size: 13px;
+    padding-left: 10px;
+    padding: 5px 15px;
+    display: inline-block;
+    span {
+        color: #f16700;
+        display: inline-block;
+        padding: 0 5px;
+    }
+}

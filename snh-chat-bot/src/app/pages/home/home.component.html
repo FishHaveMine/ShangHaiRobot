@@ -1,0 +1,8 @@
+<div class="main-container" (mousemove)='mousemove($event)' (mouseup)='mouseup($event)'>
+  <div class="drag"></div>
+  <img class="main-pic" *ngIf="noReadCount==0" src='./assets/images/main.png' (mousedown)='mousedown($event)' ondragstart="return false" />
+  <img class="main-pic active" *ngIf="noReadCount>0" src='./assets/images/main_active.png' (mousedown)='mousedown($event)' ondragstart="return false" />
+  <div *ngIf="noReadCount>0" (mousedown)='mousedown($event)' class="no-read">
+    <span>{{noReadCount}}</span>
+  </div>
+</div>

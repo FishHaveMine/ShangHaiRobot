@@ -1,0 +1,15 @@
+<div class="message-show-panel fancy-scrollbar">
+    <!-- <div class="load-more">上拉加载更多</div> -->
+    <div class="message-list" *ngFor="let dialogueVo of msgList">
+        <div class="message-time" *ngIf="dialogueVo.showTime">{{ dialogueVo.createDate | moment }}</div>
+        <div class="message-item" [ngClass]="{'message-myself': dialogueVo.myself, 'message-robot': !dialogueVo.myself}">
+            <div class="chat-arrow" *ngIf="dialogueVo.dialogueType != 13"></div>
+            <div class="message-iframe" *ngIf="dialogueVo.dialogueType == 13">
+                <iframe id="myFrame" class="message-iframe-info-wide" [src]="dialogueVo.html" frameborder='0'></iframe>
+            </div>
+            <div class="message-text" *ngIf="dialogueVo.dialogueType == 0" [innerHTML]='dialogueVo.dialogueInfo'>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="showConfirm('new')">modal模态框</button>
+</div>

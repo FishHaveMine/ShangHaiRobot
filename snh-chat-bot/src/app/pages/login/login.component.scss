@@ -1,0 +1,192 @@
+.login-main {
+    margin: auto;
+    width: 541px;
+    overflow: hidden;
+    .main-pic {
+        text-align: center;
+        z-index: 2;
+        position: relative;
+        img {
+            -webkit-app-region: drag;
+        }
+    }
+    .close-win {
+        position: absolute;
+        right: 5px;
+        top: 180px;
+        width: 35px;
+        height: 37px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 3;
+        background-image: url(../../../assets/images/login/close.png);
+        -webkit-app-region: no-drag;
+    }
+    .example-form {
+        height: 383px;
+        z-index: 1;
+        text-align: center;
+        position: relative;
+        top: -55px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 5px;
+        border: 1px solid #9498b0;
+        box-shadow: -1px 1px 3px #ffffff inset;
+        background-image: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(217, 220, 226, 0.7));
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(217, 220, 226, 0.7));
+        .login-text:first-child {
+            padding-top: 38px;
+        }
+        .login-text {
+            border-bottom: 1px solid #205095;
+            width: 275px;
+            height: 53px;
+            line-height: 69px;
+            text-align: left;
+            margin: 0 auto;
+            display: flex;
+            .blue {
+                color: #025095
+            }
+            .input-img {
+                width: 20px;
+                height: 22px;
+                padding-left: 9px;
+                padding-top: 22px;
+                padding-right: 11px;
+            }
+            .username, .password, .org-select {
+                border: none;
+                outline: none;
+                padding-left: 0;
+                padding-top: 13px;
+            }
+            .username, .password, {
+                padding-left: 0;
+                padding-top: 13px;
+            }
+            input,
+            select {
+                font-size: 16px;
+                color: #205095;
+                font-family: 微软雅黑;
+                width: 235px;
+                background-color: transparent;
+            }
+            select {
+                // 去除select标签本身下拉按钮
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+            }
+            .org-select {
+                background-image: url(../../../assets/images/login/icon_arrow.png);
+                background-repeat: no-repeat;
+                background-position: right;
+                background-position-x: 220px;
+                background-position-y: 30px;
+            }
+            input:-webkit-autofill {  
+                -webkit-text-fill-color: #205095 !important;  
+                -webkit-box-shadow: 0 0 0px 1000px transparent  inset !important;   
+                transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间  
+            } 
+        }
+        .customized {
+            margin: 40px 133px 26px 133px;
+            display: flex;
+            .remember,
+            .auto-login {
+                margin-right: 34px;
+                font-size: 14px;
+                font-family: 微软雅黑;
+                color: #205095;
+                height: 22px;
+            }
+            .auto-login {
+                margin-right: auto;
+            }
+        }
+        .login-button {
+            text-align: center;
+            background-color: #0e88f2;
+            width: 275px;
+            height: 46px;
+            border-radius: 5px;
+            border: none;
+            color: #ffffff;
+            font-size: 18px;
+            font-family: 微软雅黑;
+        }
+        .login-button:hover {
+            cursor: pointer;
+            background-color: #0878da;
+        }
+        .error-message {
+            margin-top: 12px;
+            color: #ea5f02;
+            font-size: 14px;
+        }
+        .outer-border-on {
+            width: 34px;
+            height: 21px;
+            margin-left: 16px;
+            margin-right: 8px;
+            background-color: #015296;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        .outer-border-on:after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            margin-left: 0px;
+            border: 1px solid #015296;
+            background-color: #fff;
+            display: block;
+            border-radius: 10px;
+            animation: turnon 0.3s 1;
+            -webkit-animation: turnon 0.3s 1;
+            animation-fill-mode: forwards;
+        }
+        .outer-border-off {
+            width: 34px;
+            height: 21px;
+            margin-left: 16px;
+            margin-right: 8px;
+            background-color: #747474;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        .outer-border-off:after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 1px solid #747474;
+            background-color: #fff;
+            display: block;
+            border-radius: 10px;
+            animation: turnoff 0.3s 1;
+            -webkit-animation: turnoff 0.3s 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes turnon {
+            from {
+                margin-left: 0px
+            }
+            ;
+            to {
+                margin-left: 13px;
+            }
+        }
+        @keyframes turnoff {
+            from {
+                margin-left: 13px
+            }
+            ;
+            to {
+                margin-left: 0px;
+            }
+        }
+    }
+}

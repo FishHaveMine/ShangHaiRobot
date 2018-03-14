@@ -1,0 +1,15 @@
+<!-- 瓦特输入框 -->
+<div class="message-input-panel">
+    <div class="font-search">
+        <div class="font-search-font-set"></div>
+        <div class="font-search-button-set" (click)="searchMessage()">
+            <i class="search-icon"></i>
+            <span class="search-title">消息记录</span>
+        </div>
+    </div>
+    <textarea id="messageText" [(ngModel)]="sendMessages" (keyup)="enterEvent($event)" autofocus="autofocus"></textarea>
+    <button (click)="sendMessageMouse()">发送 Ctrl+Enter</button>
+</div>
+
+
+<router-outlet></router-outlet>

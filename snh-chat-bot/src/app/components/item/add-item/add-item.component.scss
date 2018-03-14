@@ -1,0 +1,27 @@
+.additem-modal-container {
+    margin: 30px 20px 10px 20px;
+    height: 92vh;
+    font-size: 14px;
+    background-color: #fff;
+    .additem-modal-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: #F1F3F4;
+        border: 1px solid #E7EAEC;
+        padding: 10px;
+    }
+    .additem-modal-header-font {
+        font-size: 14px;
+        color: #000000;
+    }
+    .additem-modal-period-block {
+        padding-left: 10px;
+        .additem-modal-period {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: #000000;
+            font-weight: bold;
+        }
+    }
+}

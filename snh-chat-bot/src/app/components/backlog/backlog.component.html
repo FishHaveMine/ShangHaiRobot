@@ -1,0 +1,13 @@
+<div class="baklog_header">
+  <ul class="baklog_list clearfix">
+      <li *ngFor="let item of backlogType; let i = index;" id="selectItem{{i}}" [ngClass]="{'selectItem': item == selectedBacklogType,'noBorder':i+1 == backlogType.length }" (click)="selectItem(item)">{{item}}</li>
+      <div class="orgLength" *ngIf="showDaiBanInHeader && getFromContent.daibanLength != 0">共 <span>{{getFromContent.daibanLength}}</span> 项工作</div>
+  </ul>
+  <ul class="baklog_list clearfix" style="padding-top: 0;" *ngIf="selectedBacklogType != '单据待办'">
+    <li [ngClass]="{'selectItem': showStatus == 0,'noBorder':false }" (click)="selectItemStatus(0)">待办</li>
+    <li [ngClass]="{'selectItem': showStatus == 1,'noBorder':true }" (click)="selectItemStatus(1)">全部</li>
+  </ul>
+</div>
+<div class="backlogcontent fancy-scrollbar" [ngStyle]="{'height':setTheHeight}" id="backlogcontent">
+  <app-backlogcontent [selectItem]='selectedBacklogType' (sendMsg)="getSonMsg($event)"></app-backlogcontent>
+</div>

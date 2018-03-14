@@ -1,0 +1,116 @@
+<div class="orgBacklogList" *ngIf="orgBacklogListLength == 0 && showOwnType">
+    <div class="projectMainBoxCover itermText_Center" style="justify-content: center;">
+        <div class="projectMsg_erro">
+            <div *ngIf="!showLoad">暂无待办信息</div>
+            <div *ngIf="showLoad"><img src="./assets/images/daiban/loading.gif"></div>
+        </div>
+    </div>
+</div>
+<div class="orgBacklogList" *ngIf="orgBacklogList_daibanLength == 0 && !showOwnType">
+    <div class="projectMainBoxCover itermText_Center" style="justify-content: center;">
+        <div class="projectMsg_erro">
+            <div *ngIf="!showLoad">暂无待办信息</div>
+            <div *ngIf="showLoad"><img src="./assets/images/daiban/loading.gif"></div>
+        </div>
+    </div>
+</div>
+<!--
+  showOwnType true:月结，年结，年终决算     false：单据待办 
+            __ 月结，年结，年终决算 模版__
+-->
+<div class="orgBacklogListCover" *ngIf="showOwnType">
+    <div class="orgBacklogList" *ngFor="let item of orgBacklogList; let i = index;">
+        <div [ngClass]="{'setTop': 0 != i,'orgInfo clearfix':true}">
+            <div class="orgName">
+                <p style="margin:0;">{{item.orgMsg[0].orgName}} </p>
+            </div>
+            <div class="orgLength">共 <span>{{item.posts.length}}</span> 项工作</div>
+        </div>
+        <ul class="orgLogList">
+            <!-- <li class="itermText_Center" *ngIf="item.posts.length == 0">
+            <div class="projectMainBox itermText_Center">
+                  <div class="projectMsg">               
+                    暂无对应项目
+                  </div>
+                 
+                  <span class="projectStatus">
+                   
+                  </span>
+            </div>
+            <div class="projectDao">
+            </div>
+        </li>
+        -->
+            <li class="itemli itermText_Center" *ngFor="let project of item.posts">
+                <div class="projectMainBox itermText_Center">
+                    <div class="projectMsg">
+                        <span class="point">·</span> 截止{{project.endTime | date:"yyyy年MM月dd日 HH时mm分"}}
+                        <div [innerHTML]="project.projectName"></div>
+                        <!-- {{project.projectName}} -->
+                    </div>
+
+                    <div [ngClass]="{'tolimit':project.endTime_day == 0,'paddingNone':tillTime >= project.endTime,'toEndTime':true}">
+                        <span *ngIf="project.endTime_day > 0">剩{{( project.endTime - todayStart)/86400000 | number:'1.0-0'}}天</span>
+                        <span *ngIf="project.endTime_day == 0">剩{{project.endTime|momentcover}}</span>
+                    </div>
+
+                </div>
+                <div class="projectStatus">
+                    <div *ngIf="project.status == 0 && project.isFeedback != 0">尚未反馈</div>
+                    <div *ngIf="project.status == 1 && project.isFeedback != 0">最新反馈时间{{project.lastReportDate| date:"yyyy年MM月dd日 HH时mm分"}} 未完成</div>
+                    <div *ngIf="project.status == 2 && project.isFeedback != 0">最新反馈时间{{project.lastReportDate| date:"yyyy年MM月dd日 HH时mm分"}} 已完成</div>
+                </div>
+
+                <div class="projectDao" *ngIf="project.endTime > tillTime">
+                    <button *ngIf="project.isFeedback != 0" [ngClass]="{'disabledBtn': 1 == project.status ,'projectDaoItem':true}" (click)="setItemStatus(project,1,project.status)">未完成</button >
+              <button *ngIf = "project.isFeedback != 0" [ngClass]="{'disabledBtn': 2 == project.status ,'projectDaoItem':true}"  (click)="setItemStatus(project,2,project.status)">已完成</button >
+          </div>
+          <div class="projectDao" *ngIf = "tillTime > project.endTime">
+            <button *ngIf = "project.isFeedback != 0" class="disabledBtn projectDaoItem">未完成</button >
+            <button *ngIf = "project.isFeedback != 0" class="disabledBtn projectDaoItem">已完成</button >
+          </div>
+
+        </li>
+    </ul>
+  </div>
+</div>
+
+<!--
+            __ 单据待办 模版__
+-->
+<div class="orgBacklogListCover" *ngIf="!showOwnType">
+<div class="orgBacklogList">
+  <ul class="orgLogList">
+    <li class="itemli itermText_Center" *ngFor="let project of orgBacklogList_daiban">
+      <div class="GrcprojectMainBox itermText_Center">
+          <div class="GrcprojectMainImg">
+              <div [ngClass]="{'GrcprojectMainStatus':true,'orther':project.statusName=='暂存'}">
+                  {{project.statusName}}
+              </div>
+              <div class="GrcprojectMainImgBox">
+                  <img src="./assets/images/daiban/touxiang0103.gif">
+                  <span>{{project.preYhmc}}</span>
+              </div>
+          </div>
+          <div class="GrcprojectMainInfo">
+              <h3 class="GrcprojecInfoTitle">
+                {{project.billId}} {{project.processName}}
+                <span class="toCurPostTime" *ngIf="project.endTime_day != 1">已停留{{project.endTime_day}}天</span>
+                <span class="toCurPostTime" *ngIf="project.endTime_day == 1">已停留{{project.endTime_dayDetail|momentcover}}</span>
+              </h3>
+              <div class="GrcprojectInfoCon">
+                事由：{{project.fillRequest}}
+                <br>
+                <br>
+                {{project.toCurPostPath}}
+              </div>
+          </div>
+      </div>
+      <div class="GrcprojectDao">
+        <button class="GrcprojectDaoItem itermText_Center" style="justify-content: center;" (click)="openUrl(project.operatorUrl)" *ngIf="project.statusName!='审核'"><img src="./assets/images/daiban/tianxie.png">填写单据</button >
+        <button class="GrcprojectDaoItem itermText_Center" style="justify-content: center;" (click)="openUrl(project.operatorUrl)" *ngIf="project.statusName=='审核'"><img src="./assets/images/daiban/duihua.png">审核单据</button >
+      </div>
+    </li>
+</ul>
+</div>
+</div>

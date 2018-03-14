@@ -1,0 +1,248 @@
+$title-height: 47px;
+app-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F0F1F5;
+  border-radius: 7px;
+  .iframe-panel {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    height: 100%;
+    .download {
+      display: none;
+    }
+    .iframe-header {
+      width: 100%;
+      height: $title-height;
+      background-color: #0C86F0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .iframe-header-logo {
+        width: 71px;
+        height: $title-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 35px;
+          height: 40px;
+        }
+      }
+      .iframe-header-tabJ {
+        width: 114px;
+        height: $title-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: none;
+        color: #FFF;
+        background-color: #0C86F0;
+      }
+      .iframe-header-tabD {
+        width: 114px;
+        height: $title-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: none;
+        color: #FFF;
+        background-color: #0C86F0;
+      }
+      .iframe-header-tab-active {
+        background-color: #1E6AC9;
+      }
+      .buttons {
+        flex: auto;
+        display: flex;
+        justify-content: flex-end;
+        -webkit-app-region: drag;
+        .button {
+          background-repeat: no-repeat;
+          -webkit-app-region: no-drag;
+          width: 47px;
+          height: 47px;
+          background-position: 8px 2px;
+          &.min {
+            background-image: url('../../../assets/images/chat/min_sel.png');
+            &:hover {
+              cursor: pointer;
+              background-color: #0878da;
+            }
+          }
+          &.max {
+            background-image: url('../../../assets/images/chat/max_sel.png');
+            &:hover {
+              cursor: pointer;
+              background-color: #0878da;
+            }
+          }
+          &.res {
+            background-image: url('../../../assets/images/chat/res_sel.png');
+            &:hover {
+              cursor: pointer;
+              background-color: #0878da;
+            }
+          }
+          &.close {
+            background-image: url('../../../assets/images/chat/close_sel.png');
+            &:hover {
+              cursor: pointer;
+              background-color: rgb(231, 33, 33)
+            }
+          }
+        }
+      }
+    }
+    .iframe-main {
+      height: 100%;
+      margin-top: $title-height;
+      position: fixed;
+      width: 100%;
+      .iframe-box {
+        height: 100%;
+        display: none;
+        &.show {
+          display: initial;
+        }
+        .iframe-message-panel {
+          background-color: #EFF2F4;
+          position: fixed;
+          left: 0;
+          top: $title-height;
+          bottom: 170px;
+        }
+        .iframe-input-panel {
+          position: fixed;
+          left: 0;
+          padding-top: 10px;
+          padding-left: 19px;
+          padding-right: 21px;
+          height: 160px;
+          bottom: 0;
+          border-top: 1px solid #a9a9a9;
+        }
+        .usual-command-open {
+          right: 190px;
+          -webkit-transition: right 0.3s ease;
+          -moz-transition: right 0.3s ease;
+          transition: right 0.3s ease;
+        }
+        .usual-command-hide {
+          right: 15px;
+          -webkit-transition: right 0.3s ease;
+          -moz-transition: right 0.3s ease;
+          transition: right 0.3s ease;
+        }
+      }
+      .sidebar-btn {
+        position: fixed;
+        z-index: 999;
+        width: 15px;
+        height: 60px; //40px
+        background-color: #D9EDFE;
+        top: 45%; // 45%
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+          background-color: #9cc5e8;
+        }
+      }
+      .sidebar-btn-iframe {
+        position: fixed;
+        z-index: 999;
+        width: 15px;
+        height: 100%; //40px
+        background-color: #FFF;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-iframe-open {
+        right: 176px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-iframe-hide {
+        right: 0px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-open {
+        right: 176px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-open {
+        right: 176px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-open:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 6px 0 6px 6px;
+        border-style: solid;
+        border-color: transparent transparent transparent #138CF2;
+        margin: 25px auto; //14px
+        position: relative;
+      }
+      .sidebar-btn-hide {
+        right: 0px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .sidebar-btn-hide:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 6px 6px 6px 0;
+        border-style: solid;
+        border-color: transparent #138CF2 transparent transparent;
+        margin: 25px auto; //14px
+        position: relative;
+      }
+      .iframe-right-open {
+        width: 190px;
+        height: 100%;
+        background-color: #fff;
+        position: fixed;
+        overflow: hidden;
+        right: 0;
+        top: $title-height;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .iframe-right-hide {
+        width: 190px;
+        height: 100%;
+        background-color: #fff;
+        position: fixed;
+        right: -175px;
+        top: $title-height;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.usual-command-header {
+    padding-left: 23px;
+    padding-right: 23px;
+    .usual-command-title {
+        padding-top: 16px;
+        padding-bottom: 12px;
+        font-size: 14px;
+        font-family: 微软雅黑;
+        color: #999999;
+        margin: 0;
+    }
+}
+.usual-command-content {
+    padding-left: 23px;
+    padding-right: 23px;
+    overflow-y: scroll;
+    width: 160px;
+    height: 82%;
+    box-sizing: unset;
+    .usual-command {
+        cursor: pointer;
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-family: 微软雅黑;
+        color: #666666;
+        width: 150px;
+        margin: 0;
+        &:hover {
+            background-color: #999990;
+        }
+    }
+}

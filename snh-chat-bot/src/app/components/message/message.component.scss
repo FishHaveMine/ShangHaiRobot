@@ -1,0 +1,85 @@
+app-message {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #F0F1F5;
+    .message-input-panel {
+        width: 100%;
+        height: 100%;
+        textarea {
+            width: 100%;
+            //height: 100%;
+            height: 76px;
+            background: #F0F1F5;
+            resize: none;
+            outline: none;
+            font-size: 14px;
+            border: none;
+        }
+        button {
+            position: absolute;
+            bottom: 19px;
+            right: 21px;
+            background-color: #FFF;
+            border: 1px solid #0A84EF;
+            cursor: pointer;
+            color: #0A84EF;
+            width: 116px;
+            height: 40px;
+            border-radius: 3px;
+        }
+        .font-search {
+            width: 100%;
+            height: 30px;
+            font-size: 14px;
+            margin-top: -7px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F0F0F5;
+            .font-search-font-set {
+                color: #646464;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                // cursor: pointer;
+            }
+            // .font-search-font-set:hover {
+            //     color: #47A9EE;
+            //     border-radius: 6px;
+            //     background-color: #FFFFFF;
+            // }
+            .font-search-button-set {
+                width: 95px;
+                height: 30px;
+                line-height: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                .search-icon {
+                    width: 16px;
+                    height: 16px;
+                    background-image: url("../../../assets/images/search/search.png");
+                }
+                .search-title {
+                    color: #E6A396;
+                }
+            }
+            .font-search-button-set:hover {
+                border-radius: 6px;
+                background-color: #FFFFFF;
+                .search-icon {
+                    background-image: url("../../../assets/images/search/search_focus.png");
+                }
+                .search-title {
+                    color: #ED6E5F;
+                }
+            }
+        }
+    }
+}
